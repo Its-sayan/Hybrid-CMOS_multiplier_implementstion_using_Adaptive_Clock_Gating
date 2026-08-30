@@ -1,0 +1,142 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# vsim -gui -novopt work.testbench 
+# Start time: 22:50:38 on Apr 05,2026
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.conventional_multiplier
+# Loading work.hybrid_multiplier
+# Loading work.memristor_model
+# Loading work.proposed_multiplier
+# Loading work.adaptive_gating
+vlog testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:51:52 on Apr 05,2026
+# vlog -reportprogress 300 testbench.v 
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 22:51:52 on Apr 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+add wave *
+run 10000 ns
+# Loading work.testbench
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: sayan  Hostname: LAPTOP-TKBPV25L  ProcessID: 21444
+#           Attempting to use alternate WLF file "./wlftv4snwy".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftv4snwy
+# ================================================================
+#     HYBRID MEMRISTOR-CMOS MULTIPLIER WITH ADAPTIVE CLOCK GATING
+# ================================================================
+# 
+# TEST SEQUENCE STARTED...
+# Time(ns)    A    B    Conv    Hybrid    Proposed    Gated
+# ------------------------------------------------------------
+#               600000    00    00    0000    0000    0000    0
+# Note: Clock gated for 0 * 0 - not checking output
+#               990000    00    01    0000    0000    0xxx    0
+# Note: Clock gated for 0 * 1 - not checking output
+#              1380000    00    10    0000    0000    0x00    0
+# Note: Clock gated for 0 * 2 - not checking output
+#              1770000    00    11    0000    0000    0000    0
+# Note: Clock gated for 0 * 3 - not checking output
+#              2160000    01    00    0000    0000    0000    0
+# Note: Clock gated for 1 * 0 - not checking output
+#              2550000    01    01    0011    0000    0000    0
+# ERROR: Conventional: 1 * 1 =  3, Expected:           1
+# ERROR: Hybrid: 1 * 1 =  0, Expected:           1
+# Note: Clock gated for 1 * 1 - not checking output
+#              2940000    01    10    0011    0000    0000    0
+# ERROR: Conventional: 1 * 2 =  3, Expected:           2
+# ERROR: Hybrid: 1 * 2 =  0, Expected:           2
+# Note: Clock gated for 1 * 2 - not checking output
+#              3330000    01    11    0010    0011    0000    0
+# ERROR: Conventional: 1 * 3 =  2, Expected:           3
+# Note: Clock gated for 1 * 3 - not checking output
+#              3720000    10    00    0000    0000    0000    0
+# Note: Clock gated for 2 * 0 - not checking output
+#              4110000    10    01    0010    0000    0000    0
+# ERROR: Hybrid: 2 * 1 =  0, Expected:           2
+# Note: Clock gated for 2 * 1 - not checking output
+#              4500000    10    10    0100    0000    0000    0
+# ERROR: Hybrid: 2 * 2 =  0, Expected:           4
+# Note: Clock gated for 2 * 2 - not checking output
+#              4890000    10    11    0110    0100    0000    0
+# ERROR: Hybrid: 2 * 3 =  4, Expected:           6
+# Note: Clock gated for 2 * 3 - not checking output
+#              5280000    11    00    0000    0000    0000    0
+# Note: Clock gated for 3 * 0 - not checking output
+#              5670000    11    01    0101    0000    0000    0
+# ERROR: Conventional: 3 * 1 =  5, Expected:           3
+# ERROR: Hybrid: 3 * 1 =  0, Expected:           3
+# Note: Clock gated for 3 * 1 - not checking output
+#              6060000    11    10    0111    0000    0000    0
+# ERROR: Conventional: 3 * 2 =  7, Expected:           6
+# ERROR: Hybrid: 3 * 2 =  0, Expected:           6
+# Note: Clock gated for 3 * 2 - not checking output
+#              6450000    11    11    1000    0100    0000    0
+# ERROR: Conventional: 3 * 3 =  8, Expected:           9
+# ERROR: Hybrid: 3 * 3 =  7, Expected:           9
+# Note: Clock gated for 3 * 3 - not checking output
+# 
+# --- STATIC INPUTS TEST (Clock Gating) ---
+#              7540000    10    10    0100    0100    0000    0
+# 
+# --- SEQUENTIAL PATTERNS TEST ---
+# 
+# 
+######################################################
+#            FIGURES OF MERIT - COMPARATIVE ANALYSIS
+######################################################
+# 
+# 1. POWER CONSUMPTION ANALYSIS:
+#    Conventional: 93.00 (100%)
+#    Hybrid: 65.10 (70.0%)
+#    Proposed: 18.10 (19.5%)
+#    Power Savings (Proposed vs Hybrid): 72.2%
+# 
+# 2. PERFORMANCE ANALYSIS:
+#    Avg Delay - Conventional: 1.00 cycles
+#    Avg Delay - Hybrid: 2.00 cycles
+#    Avg Delay - Proposed: 2.00 cycles
+#    PDP - Conventional: 93.00
+#    PDP - Hybrid: 130.20
+#    PDP - Proposed: 36.20
+#    PDP Improvement (Proposed vs Hybrid): 72.2%
+# 
+# 3. EFFICIENCY METRICS:
+#    Clock Gating Efficiency: 76.3%
+#    Active Cycle Reduction: 76.3%
+#    Total Clock Cycles:          93
+#    Gated Cycles:          71
+# 
+# 4. AREA AND RELIABILITY:
+#    Transistor Count - Conventional: 28
+#    Transistor Count - Hybrid: 18
+#    Transistor Count - Proposed: 22
+#    Memristor Count - Conventional: 0
+#    Memristor Count - Hybrid: 16
+#    Memristor Count - Proposed: 16
+#    Reliability - Conventional: 62.5%
+#    Reliability - Hybrid: 50.0%
+#    Reliability - Proposed: 0.0% (when clock active)
+# 
+# 5. OVERALL IMPROVEMENT SUMMARY:
+#    Power Reduction vs Conventional: 80.5%
+#    Power Reduction vs Hybrid: 72.2%
+#    PDP Reduction vs Conventional: 61.1%
+#    PDP Reduction vs Hybrid: 72.2%
+#    Area Increase vs Conventional: -4.3%
+# 
+######################################################
+#    PROPOSED DESIGN: 72.2% Power Savings with 72.2% PDP Improvement
+######################################################
+# ** Note: $finish    : testbench.v(84)
+#    Time: 9540 ns  Iteration: 0  Instance: /testbench
+# 1
+# Break in Module testbench at testbench.v line 84
+quit -sim
+# End time: 22:56:57 on Apr 05,2026, Elapsed time: 0:06:19
+# Errors: 0, Warnings: 2
