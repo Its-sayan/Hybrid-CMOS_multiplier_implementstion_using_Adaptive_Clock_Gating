@@ -520,7 +520,7 @@ $$
 \boxed{72.2\%}
 $$
 
----
+
 
 # 🕒 Clock Gating Efficiency
 
@@ -550,7 +550,7 @@ $$
 
 This means that the clock was gated for approximately **76.3% of the simulated cycles**.
 
----
+
 
 # 📐 Power-Delay Product
 
