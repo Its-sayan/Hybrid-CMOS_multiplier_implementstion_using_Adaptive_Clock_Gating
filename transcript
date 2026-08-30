@@ -45,40 +45,6 @@ run 10000 ns
 #              2160000    01    00    0000    0000    0000    0
 # Note: Clock gated for 1 * 0 - not checking output
 #              2550000    01    01    0011    0000    0000    0
-# ERROR: Conventional: 1 * 1 =  3, Expected:           1
-# ERROR: Hybrid: 1 * 1 =  0, Expected:           1
-# Note: Clock gated for 1 * 1 - not checking output
-#              2940000    01    10    0011    0000    0000    0
-# ERROR: Conventional: 1 * 2 =  3, Expected:           2
-# ERROR: Hybrid: 1 * 2 =  0, Expected:           2
-# Note: Clock gated for 1 * 2 - not checking output
-#              3330000    01    11    0010    0011    0000    0
-# ERROR: Conventional: 1 * 3 =  2, Expected:           3
-# Note: Clock gated for 1 * 3 - not checking output
-#              3720000    10    00    0000    0000    0000    0
-# Note: Clock gated for 2 * 0 - not checking output
-#              4110000    10    01    0010    0000    0000    0
-# ERROR: Hybrid: 2 * 1 =  0, Expected:           2
-# Note: Clock gated for 2 * 1 - not checking output
-#              4500000    10    10    0100    0000    0000    0
-# ERROR: Hybrid: 2 * 2 =  0, Expected:           4
-# Note: Clock gated for 2 * 2 - not checking output
-#              4890000    10    11    0110    0100    0000    0
-# ERROR: Hybrid: 2 * 3 =  4, Expected:           6
-# Note: Clock gated for 2 * 3 - not checking output
-#              5280000    11    00    0000    0000    0000    0
-# Note: Clock gated for 3 * 0 - not checking output
-#              5670000    11    01    0101    0000    0000    0
-# ERROR: Conventional: 3 * 1 =  5, Expected:           3
-# ERROR: Hybrid: 3 * 1 =  0, Expected:           3
-# Note: Clock gated for 3 * 1 - not checking output
-#              6060000    11    10    0111    0000    0000    0
-# ERROR: Conventional: 3 * 2 =  7, Expected:           6
-# ERROR: Hybrid: 3 * 2 =  0, Expected:           6
-# Note: Clock gated for 3 * 2 - not checking output
-#              6450000    11    11    1000    0100    0000    0
-# ERROR: Conventional: 3 * 3 =  8, Expected:           9
-# ERROR: Hybrid: 3 * 3 =  7, Expected:           9
 # Note: Clock gated for 3 * 3 - not checking output
 # 
 # --- STATIC INPUTS TEST (Clock Gating) ---
