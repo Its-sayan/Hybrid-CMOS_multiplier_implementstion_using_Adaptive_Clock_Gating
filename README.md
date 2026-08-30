@@ -1,8 +1,8 @@
-# Hybrid Memristor-CMOS multiplier With Appling a Low power Technique and Simulated using Verilog.
+# Hybrid Memristor-CMOS Multiplier with Adaptive Clock Gating
 
 <p align="center">
 
-**A Low-Power Hybrid Memristor-CMOS Multiplier Using Adaptive Clock Gating**
+## A Low-Power Hybrid Memristor-CMOS Multiplier Using Adaptive Clock Gating
 
 [![Verilog](https://img.shields.io/badge/HDL-Verilog-blue)]()
 [![VLSI](https://img.shields.io/badge/Domain-VLSI%20Design-orange)]()
@@ -166,9 +166,7 @@ The proposed implementation contains:
                                │
                                ▼
                     ┌─────────────────────┐
-                    │                     │
                     │    Input Monitor    │
-                    │                     │
                     └──────────┬──────────┘
                                │
                                ▼
@@ -176,7 +174,7 @@ The proposed implementation contains:
                     │   Change Detector   │
                     │                     │
                     │ A ≠ A_prev OR       │
-                    │ B ≠ B_prev         │
+                    │ B ≠ B_prev          │
                     └──────────┬──────────┘
                                │
                          Input Changed?
@@ -185,10 +183,10 @@ The proposed implementation contains:
                         YES          NO
                          │           │
                          ▼           ▼
-                  ┌────────────┐   ┌───────────┐
-                  │   Clock    │   │   Clock   │
-                  │  Enabled   │   │   Gated   │
-                  └─────┬──────┘   └───────────┘
+                  ┌────────────┐  ┌───────────┐
+                  │   Clock    │  │   Clock   │
+                  │  Enabled   │  │   Gated   │
+                  └─────┬──────┘  └───────────┘
                         │
                         ▼
              ┌────────────────────────┐
@@ -217,14 +215,14 @@ Conceptually:
 
 ```text
               ┌─────────────────────────┐
-      A ─────►│                         │
-              │  Memristive Universal  │────► AND
-      B ─────►│        Logic Gate       │────► OR
-              │                         │────► XOR
+      A ─────►│                         │────► AND
+              │  Memristive Universal  │────► OR
+      B ─────►│        Logic Gate       │────► XOR
+              │                         │
               └─────────────────────────┘
 
                   4 Memristors
-                  +
+                        +
                   2 Transistors
 ```
 
@@ -245,11 +243,8 @@ The partial products are:
 
 ```text
 pp0 = A0 · B0
-
 pp1 = A0 · B1
-
 pp2 = A1 · B0
-
 pp3 = A1 · B1
 ```
 
@@ -257,17 +252,17 @@ These partial products are then combined using the hybrid logic structure to gen
 
 ```text
              A1 A0
-             ×  B1 B0
-             ─────────
-              pp0
-             pp1
-             pp2
-            pp3
-             ─────────
-             P3 P2 P1 P0
+           × B1 B0
+           ─────────
+             pp0
+            pp1
+            pp2
+           pp3
+           ─────────
+           P3 P2 P1 P0
 ```
 
-The architecture therefore performs complete **2×2 binary multiplication** while using the hybrid memristor-CMOS logic structure.
+The architecture therefore performs complete **2×2 binary multiplication** while using the hybrid Memristor-CMOS logic structure.
 
 ---
 
@@ -285,10 +280,10 @@ $$
 
 where:
 
-* \(\alpha\) = switching activity
-* \(C_L\) = effective load capacitance
-* \(V_{DD}\) = supply voltage
-* \(f\) = operating frequency
+* $\alpha$ = switching activity
+* $C_L$ = effective load capacitance
+* $V_{DD}$ = supply voltage
+* $f$ = operating frequency
 
 The adaptive clock gating mechanism primarily reduces unnecessary switching by reducing the effective clock activity when computation is not required.
 
@@ -338,9 +333,9 @@ Initialize:
 For every clock cycle:
 
     if (A != A_prev) OR (B != B_prev)
-        clk_gated = clk
+        clock_gated = clk
     else
-        clk_gated = 0
+        clock_gated = 0
 
     A_prev = A
     B_prev = B
@@ -460,13 +455,13 @@ Conventional CMOS
        ├──────────────┐
        │              │
        ▼              ▼
-Base Hybrid      Proposed ACG
+ Base Hybrid     Proposed ACG
 Memristor-CMOS   Hybrid Design
        │              │
        └──────┬───────┘
               ▼
        Performance
-       Comparison
+        Comparison
 ```
 
 ---
@@ -520,7 +515,7 @@ $$
 \boxed{72.2\%}
 $$
 
-
+---
 
 # 🕒 Clock Gating Efficiency
 
@@ -550,7 +545,7 @@ $$
 
 This means that the clock was gated for approximately **76.3% of the simulated cycles**.
 
-
+---
 
 # 📐 Power-Delay Product
 
@@ -598,8 +593,6 @@ Power                100%           70%          19.5%
                          │        │  -72.2%  │
                          │        │ vs Hybrid│
                          │        └──────────┘
-                         │
-                         ▼
 
 Clock Gating Efficiency:
                          76.3%
@@ -636,6 +629,7 @@ PDP:
 * Dynamic Power Reduction
 * Power-Delay Product Analysis
 
+---
 
 # 🔬 Design Flow
 
@@ -669,13 +663,13 @@ The complete project workflow can be summarized as:
           Integrate with Multiplier
                       │
                       ▼
-          Develop Verilog Model
+           Develop Verilog Model
                       │
                       ▼
              Develop Testbench
                       │
                       ▼
-           Functional Verification
+          Functional Verification
                       │
                       ▼
        Power / Delay / PDP Analysis
@@ -703,7 +697,7 @@ The design combines memristive logic with CMOS circuitry rather than relying ent
 
 ### Compact Arithmetic Logic
 
-The underlying universal memristor-CMOS logic structure provides multiple logic functions within a compact architecture.
+The underlying universal Memristor-CMOS logic structure provides multiple logic functions within a compact architecture.
 
 ### Input-Aware Power Management
 
@@ -760,12 +754,12 @@ Introduce multiple clock-gating domains:
 
 ```text
                   Multiplier
-                     │
-          ┌──────────┼──────────┐
-          ▼          ▼          ▼
-       Block 1    Block 2    Block 3
-          │          │          │
-       Gate       Gate       Gate
+                      │
+             ┌────────┼────────┐
+             ▼        ▼        ▼
+          Block 1  Block 2  Block 3
+             │        │        │
+           Gate     Gate     Gate
 ```
 
 Only the required computational blocks would receive an active clock.
@@ -794,5 +788,3 @@ The digital control architecture can be further evaluated through FPGA implement
 Future work can also investigate detailed memristor device models and transistor-level simulations to provide more realistic power and delay estimates.
 
 ---
-
-
